@@ -1,8 +1,12 @@
-import './App.css';
+import * as React from 'react';
+import { Routes, Route } from 'react-router-dom';
+import SignInSide from "./login/SignInSide";
 
 function App() {
   return (
-    <p>Jogger - kreiran projekat</p>
+    <Routes>
+    <Route path="/" element={<SignInSide />} />
+  </Routes>
   );
 }
 
