@@ -13,8 +13,8 @@ export default function MenuAppBar() {
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static">
         <Toolbar>
-          {roles.includes("DEVELOPER") && <Button color="inherit">Materijali</Button>}
-          {roles.includes("ADMIN") && <Button color="inherit">Korisnici</Button>}
+          {roles.includes("Developer") && <Button color="inherit">Materijali</Button>}
+          {roles.includes("Admin") && <Button color="inherit">Korisnici</Button>}
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
           </Typography>
           <IconButton aria-label="delete" size="large">
