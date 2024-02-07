@@ -31,7 +31,10 @@ export default function SignInSide() {
         const roles = resposne.data.data.roles;
         localStorage.setItem('Token', token);
         localStorage.setItem('Roles', roles);
-        navigate('/users');
+        if (roles.indexOf("Developer") != -1 || roles.indexOf("Intern") != -1) 
+          navigate('/learning-materials');
+        else if (roles.indexOf("Admin") != -1)
+          navigate('/users');       
     })
     .catch((error) => {
         setErrorMessage(error.response.data.message);
