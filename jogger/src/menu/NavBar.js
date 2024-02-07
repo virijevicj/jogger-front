@@ -40,7 +40,7 @@ export default function MenuAppBar() {
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static">
         <Toolbar>
-          {roles.includes("Developer") || roles.includes("Intern") && <Button color="inherit" onClick={handleMaterijaliClick}>Materijali</Button>}
+          {(roles.includes("Developer") || roles.includes("Intern")) && <Button color="inherit" onClick={handleMaterijaliClick}>Materijali</Button>}
           {roles.includes("Admin") && <Button color="inherit" onClick={handleKorisniciClick}>Korisnici</Button>}
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
           </Typography>
