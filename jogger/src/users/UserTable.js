@@ -16,7 +16,6 @@ import CheckIcon from '@mui/icons-material/Check';
 import ClearRoundedIcon from '@mui/icons-material/ClearRounded';
 import DialogDelete from './DialogDelete';
 
-let callGet = true;
 const headCells = ['Ime', 'Prezime', 'Korisnicki nalog', 'Email', 'Aktivan', 'Uloge', 'Akcije'];
 
 function getRoleNamesForUser(acc, currentValue) {
@@ -41,7 +40,6 @@ function mapUsersToTableRows(data) {
       }
     )
   })
-  console.log(users);
   return users;
 }
 
@@ -49,10 +47,7 @@ export default function UserTable() {
   const [users, setUsers] = React.useState([]);
   const [roles, setRoles] = React.useState([]);
   const token = localStorage.getItem('Token');
-  React.useEffect(() => {
-    if (callGet) {
-      callGet = false;
-      axios.get('http://localhost:9000/jogger/api/v1/users', {
+    axios.get('http://localhost:9000/jogger/api/v1/users', {
         headers : {
           'Token' : token
         }
@@ -61,9 +56,7 @@ export default function UserTable() {
         setUsers(mapUsersToTableRows(response.data.data.users));
         setRoles(response.data.data.roles);
       })
-    .catch((error) => console.log(error));
-    }  
-  }, [])
+    .catch((error) => console.log(error));  
 
   const [page, setPage] = React.useState(0);
   const rowsPerPage = 5;
